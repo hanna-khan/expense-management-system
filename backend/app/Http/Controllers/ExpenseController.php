@@ -62,4 +62,9 @@ class ExpenseController extends Controller
     {
         //
     }
+
+    public function getAllExpenses()
+    {
+        return Expense::with('user', 'category')->get();
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,17 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'category_id' => Category::factory(),
+            'title' => $this->faker->sentence(3),
+            'amount' => $this->faker->randomFloat(2, 5, 5000),
+            'date' => $this->faker->date(),
+            'description' => $this->faker->optional()->paragraph(),
+            'receipt_path' => $this->faker->optional()->imageUrl(400, 300, 'receipt'),
+            'payment_method' => $this->faker->randomElement(['Cash', 'Credit Card', 'Debit Card', 'Bank Transfer']),
+            'is_recurring' => $this->faker->boolean(20), // 20% chance
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
