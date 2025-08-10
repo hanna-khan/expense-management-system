@@ -18,18 +18,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(), // null for global category
-            'name' => $this->faker->word(),
+            'title' => $this->faker->word(),
+            'description' => $this->faker->sentence(),
             'budget' => $this->faker->optional()->randomFloat(2, 50, 5000),
-            'color' => $this->faker->safeHexColor(),
-            'icon' => $this->faker->optional()->randomElement([
-                'shopping-cart',
-                'utensils',
-                'home',
-                'car',
-                'heart',
-                'gift'
-            ]),
             'created_at' => now(),
             'updated_at' => now(),
         ];

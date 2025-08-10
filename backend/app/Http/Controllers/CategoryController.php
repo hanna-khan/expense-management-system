@@ -62,4 +62,9 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function getAllCategories()
+    {
+        return Category::all();
+    }
 }

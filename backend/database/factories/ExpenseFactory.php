@@ -19,8 +19,8 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'category_id' => Category::factory(),
+            'user_id' => User::inRandomOrder()->value('id'),   
+            'category_id' => Category::inRandomOrder()->value('id'),
             'title' => $this->faker->sentence(3),
             'amount' => $this->faker->randomFloat(2, 5, 5000),
             'date' => $this->faker->date(),

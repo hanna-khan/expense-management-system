@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/expenses/list', [ExpenseController::class, 'getAllExpenses']);
+
+Route::get('/categories/list', [CategoryController::class, 'getAllCategories']);
 
 
 // Route::middleware(['auth', 'verified'])->group(function () {

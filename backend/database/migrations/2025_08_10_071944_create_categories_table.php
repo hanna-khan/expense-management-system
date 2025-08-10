@@ -12,11 +12,9 @@ return new class extends Migration {
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('name');
+            $table->string('title');
+            $table->string('description')->nullable();
             $table->decimal('budget', 10, 2)->nullable();
-            $table->string('color')->nullable();
-            $table->string('icon')->nullable();
             $table->timestamps();
         });
 
